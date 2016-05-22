@@ -62,7 +62,38 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
+
+  // assign strings by value
+  // inner.textContent = tile.value;
+  var rank = tile.value;
+  var tileContent = "";
+  if (rank == 2) {
+    tileContent = "Relax";
+  } else if (rank == 4) {
+    tileContent = "Breathe";
+  } else if (rank == 8) {
+    tileContent = "Focus";
+  } else if (rank == 16) {
+    tileContent = "Let Go";
+  } else if (rank == 32) {
+    tileContent = "Drift";
+  } else if (rank == 64) {
+    tileContent = "Sinking";
+  } else if (rank == 128) {
+    tileContent = "Down";
+  } else if (rank == 256) {
+    tileContent = "Deeper";
+  } else if (rank == 512) {
+    tileContent = "Empty";
+  } else if (rank == 1024) {
+    tileContent = "Blank";
+  } else if (rank == 2048) {
+    tileContent = "Drop";
+  } else {
+    tileContent = "Deeper";
+  }
+  inner.textContent = tileContent;
+
 
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
